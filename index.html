@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script type="text/javascript">
+
+    var passwordLen = 16;
+    var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var noOfRows = 12;
+    var colsPerRow = 6;
+
+    function pwgen() {
+      var password = "";
+      var ranNum;
+
+      while (password.length < passwordLen) {
+        randNum = Math.round(Math.random() * (chars.length - 1));
+        password += chars[randNum];
+      }
+
+      return password;
+    };
+
+    function fillRows() {
+      var rows = document.getElementsByClassName("col-md-2");
+      for (var row in rows) {
+        if (row !== "length" && row !== "item") {
+          rows[row].innerHTML = pwgen();
+        }
+      }
+    };
+
+    function buildRows() {
+      var container = document.getElementById("container");
+
+      for (var r = 0; r < noOfRows; ++r) {
+        var row = document.createElement("div");
+        row.className = "row";
+
+        for (var c = 0; c < colsPerRow; ++c) {
+          var col = document.createElement("div");
+          col.className = "col-md-2 password";
+          row.appendChild(col);
+        }
+
+        container.appendChild(row);
+      }
+
+      fillRows();
+    };
+
+    </script>
+  </head>
+  <body onload="buildRows()">
+    <div class="container" id="container">
+      <p class="text-center generate-more"><a href="#" onclick="fillRows()">Refresh</a></p>
+    </div>
+  </body>
+</html>
