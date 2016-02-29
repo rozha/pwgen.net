@@ -24,7 +24,7 @@
     };
 
     function fillRows() {
-      var rows = document.getElementsByClassName("col-md-2");
+      var rows = document.getElementsByClassName("col-xs-2");
       for (var row in rows) {
         if (row !== "length" && row !== "item") {
           rows[row].innerHTML = pwgen();
@@ -41,7 +41,7 @@
 
         for (var c = 0; c < colsPerRow; ++c) {
           var col = document.createElement("div");
-          col.className = "col-md-2 password";
+          col.className = "col-xs-2 password";
           row.appendChild(col);
         }
 
