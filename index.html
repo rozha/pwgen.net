@@ -6,18 +6,18 @@
     <link rel="stylesheet" href="css/main.css" />
     <script type="text/javascript">
 
-    const passwordLen = 16;
-    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    const noOfRows = 12;
-    const colsPerRow = 6;
+    const PASSWORD_LEN = 16;
+    const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    const ROWS_COUNT = 12;
+    const COLS_PER_ROW = 6;
 
     function pwgen() {
       let password = "";
       let randNum;
 
-      while (password.length < passwordLen) {
-        randNum = Math.round(Math.random() * (chars.length - 1));
-        password += chars[randNum];
+      while (password.length < PASSWORD_LEN) {
+        randNum = Math.round(Math.random() * (CHARS.length - 1));
+        password += CHARS[randNum];
       }
 
       return password;
@@ -35,11 +35,11 @@
     function buildRows() {
       let container = document.getElementById("container");
 
-      for (let r = 0; r < noOfRows; ++r) {
+      for (let r = 0; r < ROWS_COUNT; ++r) {
         let row = document.createElement("div");
         row.className = "row";
 
-        for (let c = 0; c < colsPerRow; ++c) {
+        for (let c = 0; c < COLS_PER_ROW; ++c) {
           let col = document.createElement("div");
           col.className = "col-xs-2 password";
           row.appendChild(col);
