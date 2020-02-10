@@ -2,58 +2,61 @@
 <html>
   <head>
     <title>Password Generator</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <script type="text/javascript">
+  </head>
 
-    const PASSWORD_LEN = 16;
-    const CHARS = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    const ROWS_COUNT = 12;
-    const COLS_PER_ROW = 6;
+  <body onload="buildRows()">
+    <script language="YoptaScript">
 
-    function pwgen() {
-      let password = "";
-      let randNum;
+    ясенХуй ЧОСКОКА сука 16 нах
+    ясенХуй ПИЗДЕЦ сука 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789' нах
+    ясенХуй ВДОЛЬ_СКОКА сука 12 нах
+    ясенХуй ПОПЕРЁК_БЛЯ сука 6 нах
 
-      while (password.length < PASSWORD_LEN) {
-        randNum = Math.round(Math.random() * (CHARS.length - 1));
-        password += CHARS[randNum];
-      }
+    function pwgen() жЫ
+      участковый пароль сука "" нах
+      участковый хуйЗнает нах
 
-      return password;
-    };
+      потрещим (пароль.писькомер хуёвей ЧОСКОКА) жЫ
+        хуйЗнает сука Ботан.подрезать(Ботан.шара() * (ПИЗДЕЦ.писькомер - 1)) нах
+        пароль +внатуре ПИЗДЕЦ[хуйЗнает] нах
+      есть
 
-    function fillRows() {
-      let rows = document.getElementsByClassName("col-xs-2");
-      for (let row in rows) {
-        if (row !== "length" && row !== "item") {
-          rows[row].innerHTML = pwgen();
-        }
-      }
-    };
+      отвечаю пароль нах
+    есть нах
 
-    function buildRows() {
-      let container = document.getElementById("container");
+    function fillRows() жЫ
+      участковый вдольДохуя сука ксива.вычислитьТерпилПоКлассу("col-xs-2") нах
+      го (участковый вдоль чоунастут вдольДохуя) жЫ
+        вилкойвглаз (вдоль чоблятипа "length" ичо вдоль чобляоднахуйня "item") жЫ
+          вдольДохуя[вдоль].innerHTML сука pwgen() нах
+        есть
+      есть
+    есть нах
 
-      for (let r = 0; r < ROWS_COUNT; ++r) {
-        let row = document.createElement("div");
-        row.className = "row";
+    function buildRows() жЫ
+      участковый container сука ксива.вычислитьЛохаПоНомеру("container") нах
 
-        for (let c = 0; c < COLS_PER_ROW; ++c) {
-          let col = document.createElement("div");
-          col.className = "col-xs-2 password";
-          row.appendChild(col);
-        }
+      го (участковый залуп сука 0 нах залуп хуёвей ВДОЛЬ_СКОКА нах плюсуюНазалуп) жЫ
+        участковый вдоль сука ксива.createElement("div") нах
+        вдоль.className сука "row" нах
 
-        container.appendChild(row);
-      }
+        го (участковый сосало сука 0 нах сосало хуёвей ПОПЕРЁК_БЛЯ нах плюсуюНасосало) жЫ
+          участковый поперёк сука ксива.createElement("div") нах
+          поперёк.className сука "col-xs-2 password" нах
+          вдоль.заделатьПездюка(поперёк) нах
+        есть
 
-      fillRows();
-    };
+        container.заделатьПездюка(вдоль) нах
+      есть
+
+      fillRows() нах
+    есть нах
 
     </script>
-  </head>
-  <body onload="buildRows()">
+    <script src="js/yopta.min.js"></script>
     <div class="container text-center" id="container">
       <p class="text-center generate-more"><a href="#" onclick="fillRows()">Refresh</a></p>
     </div>
